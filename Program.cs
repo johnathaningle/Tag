@@ -23,10 +23,17 @@ namespace Tag
                        Console.WriteLine(o.WorkingDirectory);
 
                        var tagger = new Tagger(o.WorkingDirectory);
-                       Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => tagger.SaveChanges();
-
-                       tagger.Tag(o.ReTag ?? false);
-                       tagger.SaveChanges();
+                       if(string.IsNullOrEmpty(o.SearchQuery)) 
+                       {
+                            
+                            Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => tagger.SaveChanges();
+                            tagger.Tag(o.ReTag ?? false);
+                            tagger.SaveChanges();
+                       }
+                       else
+                       {
+                           tagger.Search(o.SearchQuery);
+                       }
                    });
         }
     }

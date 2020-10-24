@@ -9,5 +9,8 @@ namespace Tag
 
         [Option('r', "retag", Required = false, HelpText = "Retagging does not skip files that currently have tags")]
         public bool? ReTag {get; set;}
+
+        [Option('s', "search", Required = false, HelpText = "Search a workspace for certain tags")]
+        public string SearchQuery { get; set; }
     }
 }

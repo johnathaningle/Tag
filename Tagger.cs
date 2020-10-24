@@ -57,7 +57,8 @@ namespace Tag
             }
             return false;
         }
-        public void Tag(bool isRetagging)
+
+        private void Initialize()
         {
             //if the .tags directory doesn't exist, create it, it will store the json file containing the tagging info
             if (!Directory.Exists(workspaceDirectory))
@@ -72,7 +73,21 @@ namespace Tag
                 var existingTagData = File.ReadAllText(tagFile);
                 tagData = JsonConvert.DeserializeObject<Dictionary<string, FileInfo>>(existingTagData);
             }
+        }
 
+        public void Search(string searchQuery, bool fuzzyMatch = false)
+        {
+            Initialize();
+            var tags = searchQuery.Split(',').Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+            foreach(var media in this.tagData.Select(x => x.Value))
+            {
+                if(tags.Any(x => media.Tags.Any(y => y.Contains(x, StringComparison.InvariantCultureIgnoreCase))))
+                    Console.WriteLine($"Match: \"{media.FilePath}\"");
+            }
+        }
+        public void Tag(bool isRetagging)
+        {
+            Initialize();
             var directoryInfo = new DirectoryInfo(this.workingDirectory);
 
             Console.WriteLine("Getting file information from the specified directory...");
