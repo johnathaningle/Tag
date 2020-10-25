@@ -38,11 +38,19 @@ namespace Tag
             "mov",
         };
 
+        /// <summary>
+        /// Save the tagging data to the workspace directory
+        /// </summary>
         public void SaveChanges() 
         {
             File.WriteAllText(this.tagFile, JsonConvert.SerializeObject(this.tagData));
         }
 
+        /// <summary>
+        /// Return true if the file name represents a media file
+        /// </summary>
+        /// <param name="fileInfo"></param>
+        /// <returns></returns>
         private bool IsValidMediaFile(FileInfo fileInfo)
         {
             foreach(var videoExtention in videoFileTypes)
@@ -58,6 +66,9 @@ namespace Tag
             return false;
         }
 
+        /// <summary>
+        /// Initialize the tagging data directories
+        /// </summary>
         private void Initialize()
         {
             //if the .tags directory doesn't exist, create it, it will store the json file containing the tagging info
@@ -75,7 +86,12 @@ namespace Tag
             }
         }
 
-        public void Search(string searchQuery, bool fuzzyMatch = false)
+        /// <summary>
+        /// This will list all files that meet a certain search query
+        /// example: "exterior, doorway" lists all media tagged with "exterior" or "doorway"
+        /// </summary>
+        /// <param name="searchQuery"></param>
+        public void Search(string searchQuery)
         {
             Initialize();
             var tags = searchQuery.Split(',').Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
@@ -85,6 +101,11 @@ namespace Tag
                     Console.WriteLine($"Match: \"{media.FilePath}\"");
             }
         }
+
+        /// <summary>
+        /// Run through all the files in the media directory and propt the user to tag the footage
+        /// </summary>
+        /// <param name="isRetagging"></param>
         public void Tag(bool isRetagging)
         {
             Initialize();
@@ -113,13 +134,24 @@ namespace Tag
 
         }
 
+        /// <summary>
+        /// Attempt to open the media file using the default operating system program
+        /// </summary>
+        /// <param name="filePath"></param>
         private void OpenMedia(string filePath)
         {
-            var startInfo = new ProcessStartInfo(filePath);
-            var p = new Process();
-            p.StartInfo = startInfo;
-            p.StartInfo.UseShellExecute = true;
-            p.Start();
+            try
+            {
+                var startInfo = new ProcessStartInfo(filePath);
+                var p = new Process();
+                p.StartInfo = startInfo;
+                p.StartInfo.UseShellExecute = true;
+                p.Start();
+            }
+            catch
+            {
+                Console.WriteLine($"The media could not be opened. Make sure \"{filePath}\" is a supported media type");
+            }
         }
 
         private List<FileInfo> getFileInformation(DirectoryInfo directoryInfo)
