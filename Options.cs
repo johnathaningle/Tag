@@ -12,5 +12,8 @@ namespace Tag
 
         [Option('s', "search", Required = false, HelpText = "Search a workspace for certain tags")]
         public string SearchQuery { get; set; }
+
+        [Option('D', "dedup", Required = false, HelpText = "Find and remove duplicate files")]
+        public bool Deduplicate { get; set; }
     }
 }
