@@ -24,7 +24,7 @@ namespace Tag
 
                        Console.WriteLine(o.WorkingDirectory);
 
-                       var tagger = new Tagger(o.WorkingDirectory);
+                       var tagger = new Tagger(o.WorkingDirectory, o.VideoOnly);
 
                        //the user chose to remove duplicate media
                        if (o.Deduplicate)
@@ -35,7 +35,7 @@ namespace Tag
                        else if(string.IsNullOrEmpty(o.SearchQuery))
                        {
                             Console.CancelKeyPress += (object sender, ConsoleCancelEventArgs e) => tagger.SaveChanges();
-                            tagger.Tag(o.ReTag ?? false);
+                            tagger.Tag(o.ReTag);
                             tagger.SaveChanges();
                        }
                        //the user chose to search for media

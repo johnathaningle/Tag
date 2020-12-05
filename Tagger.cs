@@ -26,13 +26,13 @@ namespace Tag
         /// </summary>
         /// <value></value>
         private Dictionary<string, FileInfo> tagData { get; set; }
-        private List<FileInfo> duplicateFiles { get; set; }
+        public bool VideoOnly { get; set; }
         private List<string> IgnoredDirectories { get; set; }
-        public Tagger(string workingDirectory)
+        public Tagger(string workingDirectory, bool videoOnly)
         {
             this.workingDirectory = workingDirectory.Trim();
             this.tagData = new Dictionary<string, FileInfo>();
-            this.duplicateFiles = new List<FileInfo>();
+            this.VideoOnly = videoOnly;
             this.IgnoredDirectories = new List<string> { workspaceDirectory };
             Initialize();
         }
@@ -70,10 +70,13 @@ namespace Tag
                 if(fileInfo.FileName.Contains(videoExtention, StringComparison.InvariantCultureIgnoreCase))
                     return true;
             }
-            foreach(var photoExtention in imageFileTypes)
+            if(!this.VideoOnly)
             {
-                if(fileInfo.FileName.Contains(photoExtention, StringComparison.InvariantCultureIgnoreCase))
-                    return true;
+                foreach(var photoExtention in imageFileTypes)
+                {
+                    if(fileInfo.FileName.Contains(photoExtention, StringComparison.InvariantCultureIgnoreCase))
+                        return true;
+                }
             }
             return false;
         }
