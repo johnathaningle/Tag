@@ -12,14 +12,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - name: Build & publish
+      run: dotnet publish -o /bin/Publish --configuration Release
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v1
       with:
-        dotnet-version: 3.1.301
-    - name: Install dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --runtime win10-x64  -c Release -p:PublishSingleFile=true
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+        name: YoutubeDownloader
+        path: /bin/Publish
