@@ -5,9 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TagConsumer.Controllers
 {
-    [Route("/")]
-    [ApiController]
-    public class HomeController : ControllerBase
+    public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
@@ -18,9 +16,15 @@ namespace TagConsumer.Controllers
         }
 
         [HttpGet]
-        public string Home()
+        public string Index()
         {
             return "Hello World";
+        }
+
+        [HttpPost]
+        public JsonResult CreateDirectoryStructure()
+        {
+            return new JsonResult(new {FileStatus = "Created"});
         }
     }
 }

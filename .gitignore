@@ -3,3 +3,4 @@ obj
 bin
 .vscode
 .tags
+*.db
