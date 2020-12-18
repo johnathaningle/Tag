@@ -9,17 +9,16 @@ using TagConsumer.Models;
 using System.Text;
 using TagConsumer.Services;
 using Microsoft.Extensions.Logging;
+using Tag.Consumer.Controllers;
 
 namespace TagConsumer.Controllers
 {
-    public class AuthController : Controller
+    public class AuthController : BaseAuthController
     {
         private DataContext _context { get; set; }
         private ILogger<AuthController> _logger { get; set; }
-        public AuthController(ILogger<AuthController> logger, DataContext context)
+        public AuthController(ILogger<AuthController> logger, DataContext context) : base(logger, context)
         {
-            _context = context;
-            _logger = logger;
         }
 
         [HttpGet]

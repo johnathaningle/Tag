@@ -29,6 +29,7 @@ namespace TagConsumer {
             services.AddControllers ();
             services.AddSingleton (Configuration);
             services.AddMemoryCache ();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddDbContext<DataContext> (
                 options => options.UseSqlite ());
             services.AddSwaggerGen (c => c.SwaggerDoc ("v1", new OpenApiInfo { Title = "TagConsumer", Version = "v1" }));
@@ -49,7 +50,7 @@ namespace TagConsumer {
             app.UseAuthorization ();
 
             app.UseMvc(routes => {
-                routes.MapRoute (template: "{controller}/{action}/{id}");
+                routes.MapRoute("default", "{controller}/{action}/{id}");
             });
         }
     }

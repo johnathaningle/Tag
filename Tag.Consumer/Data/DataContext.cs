@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Tag.Consumer.Models;
 using TagConsumer.Models;
 
 namespace TagConsumer.Data
@@ -10,7 +11,8 @@ namespace TagConsumer.Data
         {
         }
         public DbSet<User> Users { get; set; }
-        
+        public DbSet<Backup> Backups { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
