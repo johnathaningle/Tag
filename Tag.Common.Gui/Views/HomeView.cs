@@ -1,9 +1,9 @@
 
 using Eto.Drawing;
 using Eto.Forms;
-using Tag.Backup.Linux.Commands;
+using Tag.Common.Gui.Commands;
 
-namespace Tag.Backup.Linux
+namespace Tag.Common.Gui.Views
 {
     public class HomeView : Form
     {

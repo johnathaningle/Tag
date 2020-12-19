@@ -8,5 +8,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Tag.Common\Tag.Common.csproj" />
+    <ProjectReference Include="..\Tag.Common.Gui\Tag.Common.Gui.csproj" />
   </ItemGroup>
 </Project>
