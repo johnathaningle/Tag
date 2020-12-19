@@ -1,6 +1,8 @@
-using TagConsumer.Data;
 
-namespace Tag.Consumer.Services
+
+using Tag.Common.Data;
+
+namespace Tag.Common.Services
 {
     public class UnitOfWork
     {
@@ -27,7 +29,7 @@ namespace Tag.Consumer.Services
             get
             {
                 if(this.userService == null)
-                    this.userService = new UserService();
+                    this.userService = new UserService(this.db);
 
                 return this.userService;
             }

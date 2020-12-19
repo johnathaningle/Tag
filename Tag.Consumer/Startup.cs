@@ -12,8 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using TagConsumer.Attributes;
-using TagConsumer.Data;
+using Tag.Common.Data;
 
 namespace TagConsumer {
     public class Startup {

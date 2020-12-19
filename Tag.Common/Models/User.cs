@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace TagConsumer.Models
+namespace Tag.Common.Models
 {
     public class User
     {

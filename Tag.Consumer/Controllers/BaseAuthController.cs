@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using TagConsumer.Data;
+using Tag.Common.Data;
 
 namespace Tag.Consumer.Controllers
 {

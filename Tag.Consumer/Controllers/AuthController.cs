@@ -4,12 +4,12 @@ using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using TagConsumer.Data;
-using TagConsumer.Models;
 using System.Text;
-using TagConsumer.Services;
 using Microsoft.Extensions.Logging;
 using Tag.Consumer.Controllers;
+using Tag.Common.Data;
+using Tag.Common.Services;
+using Tag.Common.Models;
 
 namespace TagConsumer.Controllers
 {

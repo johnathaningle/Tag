@@ -3,7 +3,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace TagConsumer.Services
+namespace Tag.Common.Services
 {
     public class CryptoService
     {

@@ -1,8 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Tag.Consumer.Models;
-using TagConsumer.Models;
+using Tag.Common.Models;
 
-namespace TagConsumer.Data
+namespace Tag.Common.Data
 {
     public class DataContext : DbContext
     {

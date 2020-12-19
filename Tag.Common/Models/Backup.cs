@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Tag.Consumer.Models
+namespace Tag.Common.Models
 {
     public class Backup
     {

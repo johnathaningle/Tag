@@ -1,6 +1,7 @@
-using TagConsumer.Data;
 
-namespace Tag.Consumer.Services
+using Tag.Common.Data;
+
+namespace Tag.Common.Services
 {
     public class UserService
     {

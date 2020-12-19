@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Tag.Consumer.Models
+namespace Tag.Common.Models
 {
     public class FileStructure
     {

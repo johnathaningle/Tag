@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Tag.Consumer.Services
+namespace Tag.Common.Services
 {
     public class DataService
     {
