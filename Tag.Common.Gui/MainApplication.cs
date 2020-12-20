@@ -3,6 +3,7 @@ using Tag.Common.Gui.Models;
 using Tag.Common.Gui.Services;
 using Tag.Common.Gui.Forms;
 using Tag.Common.Gui.Views;
+using Tag.Common.Services;
 
 namespace Tag.Common.Gui
 {
@@ -10,6 +11,7 @@ namespace Tag.Common.Gui
     {
         public void Run(string[] args)
         {
+            
             RegisterServices();
             this.Run(ServiceLocator.Current.Get<MainForm>());
         }

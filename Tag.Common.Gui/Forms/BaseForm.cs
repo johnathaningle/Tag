@@ -8,6 +8,8 @@ namespace Tag.Common.Gui.Forms
     {
         public BaseForm()
         {
+            Title = "TagBack";
+            ClientSize = new Size(800, 600);
             BuildMenu();
         }
         private void BuildMenu()

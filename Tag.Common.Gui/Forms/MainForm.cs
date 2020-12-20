@@ -18,8 +18,6 @@ namespace Tag.Common.Gui.Forms
             mainView = ServiceLocator.Current.Get<MainView>();
             mainVm = ServiceLocator.Current.Get<MainViewModel>();
             this.DataContext = mainVm;
-            Title = "TagBack";
-            ClientSize = new Size(800, 600);
             // create menu
             Content = mainView.Content;
         }

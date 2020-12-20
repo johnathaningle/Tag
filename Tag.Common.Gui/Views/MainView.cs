@@ -1,7 +1,11 @@
 using System;
+using System.Linq;
 using Eto.Forms;
+using Tag.Common.Gui.Forms;
 using Tag.Common.Gui.Models;
 using Tag.Common.Gui.Services;
+using Tag.Common.Models;
+using Tag.Common.Services;
 
 namespace Tag.Common.Gui.Views
 {
@@ -52,11 +56,30 @@ namespace Tag.Common.Gui.Views
             loginButton.Text = "Login";
             loginButton.Command = vm.LoginCommand;
             stack.Items.Add(loginButton);
-            loginButton.Click += new EventHandler<EventArgs>((sender, e) => {
+            loginButton.Click += new EventHandler<EventArgs>(async (sender, e) =>
+            {
                 var username = usernameBox.Text;
                 var password = passwordBox.Text;
                 Console.WriteLine($"{username} {password}");
                 var vm = ServiceLocator.Current.Get<MainViewModel>();
+                var view = ServiceLocator.Current.Get<MainView>();
+                var uow = ServiceLocator.Current.Get<UnitOfWork>();
+                var userCount = uow.UserRepository.Users_Get().Count();
+                if (userCount == 0)
+                {
+                    var pw = uow.CryptoRepository.EncryptString(password);
+                    var u = new User
+                    {
+                        Username = username,
+                        Password = pw,
+                    };
+                    uow.UserRepository.Users_Add(u);
+                    await uow.SaveChangesAsync();
+
+                }
+                MainApplication.Instance.MainForm.Visible  = false;
+                MainApplication.Instance.MainForm = new HomeForm();
+                MainApplication.Instance.MainForm.Show();
             });
 
             this.Content = stack;
