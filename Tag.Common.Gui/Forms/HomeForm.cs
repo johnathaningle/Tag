@@ -2,12 +2,15 @@
 using Eto.Drawing;
 using Eto.Forms;
 using Tag.Common.Gui.Commands;
+using Tag.Common.Gui.Layouts;
+using Tag.Common.Gui.Models;
+using Tag.Common.Gui.Services;
 
-namespace Tag.Common.Gui.Views
+namespace Tag.Common.Gui.Forms
 {
-    public class HomeView : Form
+    public class HomeForm : Form
     {
-        public HomeView()
+        public HomeForm()
         {
             Title = "TagBack";
             ClientSize = new Size(800, 600);
@@ -39,7 +42,9 @@ namespace Tag.Common.Gui.Views
                     MenuText = "About my app"
                 }
             };
-            Content = new Label { Text = "Hello World!" };
+            Content = Layouts.Views.GetLoginLayout(new LoginModel());
         }
+
+        
     }
 }

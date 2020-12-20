@@ -1,6 +1,7 @@
 ﻿using System;
 using Eto.Forms;
-using Tag.Common.Gui.Views;
+using Tag.Common.Gui;
+using Tag.Common.Gui.Forms;
 
 namespace TagBack
 {
@@ -9,7 +10,7 @@ namespace TagBack
         [STAThread]
         static void Main(string[] args)
         {
-            new Application().Run(new HomeView());
+            new MainApplication().Run(args);
         }
     }
 }
