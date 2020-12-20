@@ -62,7 +62,7 @@ namespace Tag.Common.Gui.Services
                 }
             }
 
-            throw new Exception($"Couldn't find service with type of {typeof(T).FullName}");
+            return default(T);
         }
     }
 }
