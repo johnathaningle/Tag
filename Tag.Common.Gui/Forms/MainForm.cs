@@ -4,8 +4,8 @@ using Eto.Forms;
 using Tag.Common.Gui.Commands;
 using Tag.Common.Gui.Layouts;
 using Tag.Common.Gui.Models;
-using Tag.Common.Gui.Services;
 using Tag.Common.Gui.Views;
+using Tag.Common.Services;
 
 namespace Tag.Common.Gui.Forms
 {

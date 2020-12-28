@@ -3,7 +3,6 @@ using System.Linq;
 using Eto.Forms;
 using Tag.Common.Gui.Forms;
 using Tag.Common.Gui.Models;
-using Tag.Common.Gui.Services;
 using Tag.Common.Models;
 using Tag.Common.Services;
 
