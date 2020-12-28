@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Tag.Common.Gui.Services
+namespace Tag.Common.Services
 {
     public sealed class ServiceLocator
     {
@@ -44,7 +44,6 @@ namespace Tag.Common.Gui.Services
         {
             Register<TService, TService>();
         }
-        
         public T Get<T>(string key = "") where T : class
         {
             var contractType = typeof(T);
@@ -63,6 +62,15 @@ namespace Tag.Common.Gui.Services
             }
 
             return default(T);
+        }
+
+        public void Set<T>(T obj) where T : class
+        {
+            var type = typeof(T);
+            instances[type] = new Dictionary<string, Lazy<object>>
+            {
+                [type.Name] = new Lazy<object>(obj)
+            };
         }
     }
 }
