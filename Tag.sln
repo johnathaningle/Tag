@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagConsumer", "Tag.Consumer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tag.Common.Gui", "Tag.Common.Gui\Tag.Common.Gui.csproj", "{58A98ED1-0925-4594-92D0-74B7B96FFE20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagBackWin", "Tag.Backup.Win\TagBackWin.csproj", "{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,5 +88,17 @@ Global
 		{58A98ED1-0925-4594-92D0-74B7B96FFE20}.Release|x64.Build.0 = Release|Any CPU
 		{58A98ED1-0925-4594-92D0-74B7B96FFE20}.Release|x86.ActiveCfg = Release|Any CPU
 		{58A98ED1-0925-4594-92D0-74B7B96FFE20}.Release|x86.Build.0 = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|x64.Build.0 = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Debug|x86.Build.0 = Debug|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|x64.ActiveCfg = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|x64.Build.0 = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{7CCAF864-CF7D-4D0E-8A3F-D91FA8C811EC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

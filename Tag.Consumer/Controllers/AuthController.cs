@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using System.Text;
 using Microsoft.Extensions.Logging;
 using Tag.Consumer.Controllers;
