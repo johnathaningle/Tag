@@ -15,5 +15,14 @@
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Width="160" Command="{Binding OpenCommand}" Margin="20">Add Directory To Backup</Button>
+        <ListBox Items="{Binding BackupDirectories}" Width="250" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Red" CornerRadius="4" Padding="4">
+                        <TextBlock Text="{Binding}" TextWrapping="Wrap"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+</ListBox>
     </StackPanel>
 </Window>
