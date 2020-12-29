@@ -15,7 +15,7 @@ namespace Tag.Common.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
-                .UseSqlite(@"Data Source=CustomerDB.db;");
+                .UseSqlite(@"Data Source=Data.db;");
         }
     }
 }

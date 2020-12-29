@@ -5,13 +5,9 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tag.Common", "Tag.Common\Tag.Common.csproj", "{C97FBACC-4F7F-4780-A477-EB1CDCA1283E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagBack", "Tag.Backup.Linux\TagBack.csproj", "{9BFC95AC-D8F7-483A-8096-723BEF720257}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tag", "Tag.Console\Tag.csproj", "{3BC42A21-9132-4E18-8868-81202EF1547E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagConsumer", "Tag.Consumer\TagConsumer.csproj", "{D3B0FEEF-594D-4717-97AF-4D5EAB214BEE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tag.Common.Gui", "Tag.Common.Gui\Tag.Common.Gui.csproj", "{58A98ED1-0925-4594-92D0-74B7B96FFE20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

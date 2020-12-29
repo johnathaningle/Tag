@@ -30,7 +30,7 @@ namespace TagConsumer {
             services.AddMemoryCache ();
             services.AddMvc(options => options.EnableEndpointRouting = false);
             services.AddDbContext<DataContext> (
-                options => options.UseSqlite ());
+                options => options.UseSqlite(@"Data Source=Data.db;"));
             services.AddSwaggerGen (c => c.SwaggerDoc ("v1", new OpenApiInfo { Title = "TagConsumer", Version = "v1" }));
         }
 

@@ -4,7 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 
 namespace Tag
 {
@@ -55,7 +56,7 @@ namespace Tag
         /// </summary>
         public void SaveChanges() 
         {
-            File.WriteAllText(this.tagFile, JsonConvert.SerializeObject(this.tagData));
+            File.WriteAllText(this.tagFile, JsonSerializer.Serialize(this.tagData));
         }
 
         /// <summary>
@@ -93,12 +94,12 @@ namespace Tag
 
             if(!File.Exists(tagFile))
             {
-                File.WriteAllText(tagFile, JsonConvert.SerializeObject(tagData));
+                File.WriteAllText(tagFile, JsonSerializer.Serialize(tagData));
             }
             else
             {
                 var existingTagData = File.ReadAllText(tagFile);
-                tagData = JsonConvert.DeserializeObject<Dictionary<string, FileInfo>>(existingTagData);
+                tagData = JsonSerializer.Deserialize<Dictionary<string, FileInfo>>(existingTagData);
             }
 
             //create the tagignore file if it doesn't exist already
