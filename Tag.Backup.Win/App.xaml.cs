@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
@@ -37,14 +38,24 @@ namespace TagBackWin
         private async Task InitApplication(UnitOfWork uow)
         {
             var userCount = uow.UserRepository.Users_Get().Count();
-            if(userCount == 0)
+            if (userCount == 0)
             {
-                var u = new User {
+                var u = new User
+                {
                     Username = "admin",
-                    Password = uow.CryptoRepository.EncryptString ("tagback"),
+                    Password = uow.CryptoRepository.EncryptString("tagback"),
                 };
                 uow.UserRepository.Users_Add(u);
                 await uow.SaveChangesAsync();
+
+                var currentUser = uow.UserRepository.Users_Get()
+                    .Where(x => x.Username == "admin")
+                    .FirstOrDefault();
+                ServiceLocator.Current.Set<CurrentUserModel>(new CurrentUserModel()
+                {
+                    User = currentUser,
+                    BackupDirectories = new List<string>()
+                });
             }
         }
 
