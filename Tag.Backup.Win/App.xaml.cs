@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
+using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Tag.Backup.Win.Models;
@@ -26,10 +27,11 @@ namespace TagBackWin
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow
+                desktop.MainWindow = new MainWindow();
+                desktop.MainWindow.DataContext = new MainWindowViewModel(() =>
                 {
-                    DataContext = new MainWindowViewModel(),
-                };
+                    return new OpenFolderDialog().ShowAsync(desktop.MainWindow);
+                });
             }
 
             base.OnFrameworkInitializationCompleted();
@@ -50,6 +52,16 @@ namespace TagBackWin
 
                 var currentUser = uow.UserRepository.Users_Get()
                     .Where(x => x.Username == "admin")
+                    .FirstOrDefault();
+                ServiceLocator.Current.Set<CurrentUserModel>(new CurrentUserModel()
+                {
+                    User = currentUser,
+                    BackupDirectories = new List<string>()
+                });
+            }
+            else if (userCount > 0)
+            {
+                var currentUser = uow.UserRepository.Users_Get()
                     .FirstOrDefault();
                 ServiceLocator.Current.Set<CurrentUserModel>(new CurrentUserModel()
                 {

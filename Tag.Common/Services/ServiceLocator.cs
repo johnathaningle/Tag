@@ -47,6 +47,8 @@ namespace Tag.Common.Services
         public T Get<T>(string key = "") where T : class
         {
             var contractType = typeof(T);
+            if (string.IsNullOrEmpty(key))
+                key = contractType.Name;
 
             if (createFuncs.TryGetValue(contractType, out var createFunc) && instances.TryGetValue(contractType, out var dict))
             {
