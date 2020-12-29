@@ -16,9 +16,9 @@ namespace TagBackWin {
         }
 
         public override void OnFrameworkInitializationCompleted () {
-            RegisterServices();
-            var uow = ServiceLocator.Current.Get<UnitOfWork>();
-            InitApplication(uow).Wait();
+            // RegisterServices();
+            // var uow = ServiceLocator.Current.Get<UnitOfWork>();
+            // InitApplication(uow).Wait();
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
                 desktop.MainWindow = new MainWindow {
                     DataContext = new MainWindowViewModel (),
